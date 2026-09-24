@@ -1,10 +1,13 @@
 
-import React from 'react';
+import Banner from '@/components/home/banner';
+import Books from '@/components/home/books';
+
 
 const HOmePage = () => {
   return (
     <div>
-       Home page . 
+       <Banner></Banner>
+       <Books></Books>
     </div>
   );
 };
