@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import IBookType from '@/types/books.type';
 import BookCard from '@/components/shared/BookCard';
@@ -16,7 +16,7 @@ const Books = async () => {
         <section className='container mx-auto mt-25 '>
 
             <div className=' mb-8 '>
-                <h2 className='text-[40px] text-[#131313] font-bold text-center'> All books Details </h2>
+                <h2 className='text-[40px] text-[#131313] font-bold text-center'> Explore All books  </h2>
             </div>
 
             {/* data fetching : */}

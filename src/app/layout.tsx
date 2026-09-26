@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/shared/navBar/NavBar";
+import BooksProvider from "./context/BookContext";
+import { ToastContainer } from "react-toastify";
 
 
 
@@ -29,14 +31,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         
+        <BooksProvider>
+
           <NavBar></NavBar>
-       
-         
-
-
-
+      
           {children}
           
+         <ToastContainer />
+        </BooksProvider>
+
           </body>
     </html>
   );

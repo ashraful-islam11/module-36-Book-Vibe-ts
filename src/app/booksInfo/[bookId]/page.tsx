@@ -1,7 +1,9 @@
+import ReadBtn from '@/components/bookDetailsBtn/readBtn';
+import WishlistBtn from '@/components/bookDetailsBtn/wishlistBtn';
 import IBookType from '@/types/books.type';
 import { BookOpen, CalendarDays, Heart, Star, Tag, UserRound } from 'lucide-react';
 import Image from 'next/image';
-import React from 'react';
+
 
  interface IParamsPropsDetails {
     params : Promise<{
@@ -20,18 +22,17 @@ import React from 'react';
 const BookDetailsIdPage = async ({params}: IParamsPropsDetails) => {
       
         const {bookId}  = await params ;
-        console.log(bookId);
+        // console.log(bookId);
   
         const bookData = await GetBooks(); 
-        const bookDetails : IBookType  = bookData.find( (book : IBookType) => book.bookId === Number( bookId) );
+        const bookDetails : IBookType  = bookData.find( (book : IBookType) => book.bookId === Number( bookId) )  ;
 
         const { bookName,author, image,review,totalPages, rating,category, tags, publisher, yearOfPublishing } = bookDetails;
 
-  
-
+    // console.log(bookDetails);
     return (
 
-         <div className="mx-auto w-full max-w-6xl overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
+         <div className="mx-auto mt-10 w-full max-w-6xl overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm">
       <div className="grid grid-cols-1 gap-8 p-5 sm:p-8 lg:grid-cols-2 lg:gap-10 lg:p-10">
 
         {/* Book Image */}
@@ -174,21 +175,23 @@ const BookDetailsIdPage = async ({params}: IParamsPropsDetails) => {
           {/* Buttons */}
           <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
 
-            <button
+            <ReadBtn bookDetails = {bookDetails} ></ReadBtn>
+             {/* <button
               type="button"
               className="flex items-center justify-center gap-2 rounded-xl border border-gray-300 px-5 py-3 font-semibold text-gray-800 transition hover:bg-gray-100"
             >
               <BookOpen size={20} />
               Read
-            </button>
+            </button> */}
 
-            <button
+            {/* <button
               type="button"
               className="flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 py-3 font-semibold text-white transition hover:bg-emerald-600"
             >
               <Heart size={20} />
               Wishlist
-            </button>
+            </button> */}
+           <WishlistBtn bookDetails ={ bookDetails}></WishlistBtn>
 
           </div>
         </div>
